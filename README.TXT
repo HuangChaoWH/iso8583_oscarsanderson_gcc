@@ -14,7 +14,7 @@ The result located at outs/demo and outs/benchmark.
 The objects files located in directory objs.
 
 File .ycm_extra_conf.py provided for YCM, it works, except it can not find the
-definition for DL_ISO8583_MSG_SetField_Str.
+definition of DL_ISO8583_MSG_SetField_Str.
 
 +-----------------------------+
 |     DL ISO-8583 Library     |
