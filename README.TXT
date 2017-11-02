@@ -16,6 +16,12 @@ The objects files located in directory objs.
 File .ycm_extra_conf.py provided for YCM, it works, except it can not find the
 definition of DL_ISO8583_MSG_SetField_Str.
 
+To use cscope vim plugin, run command:
+
+make cs
+
+to create files for cscope. 
+
 +-----------------------------+
 |     DL ISO-8583 Library     |
 |-----------------------------|

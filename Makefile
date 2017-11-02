@@ -72,5 +72,8 @@ d:
 	@if [ -d "objs" ]; then : ; else mkdir objs;  fi
 	@if [ -d "outs" ]; then : ; else mkdir outs;  fi
 
+cs:
+	find . -name "*.[chxsS]" -print > cscope.files
+	cscope -b -q -k
 c:
-	$(RM) -f $(OBJS) $(TARGETS)
+	$(RM) -f $(OBJS) $(TARGETS) cscope.*
