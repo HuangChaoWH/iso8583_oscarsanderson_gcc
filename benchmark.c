@@ -9,7 +9,8 @@
 
 
 // indicates the number of pack/unpack iterations performed
-#define kITERATIONS		1000000
+//#define kITERATIONS		1000000
+#define kITERATIONS		1
 
 // indicates the buffer size (in bytes)
 #define kBUFFER_SIZE	1000
@@ -69,6 +70,10 @@ int main ( void )
 
 		/* destroy ISO Msg */
 		DL_ISO8583_MSG_Free(&isoMsg);
+
+		printf("---->\n");
+		/* output packed message (in hex) */
+		DL_OUTPUT_Hex(stdout, NULL, buf, bufSize);
 
 		/* initialise ISO message (for unpack) */
 #ifdef USE_STATIC_MEMORY

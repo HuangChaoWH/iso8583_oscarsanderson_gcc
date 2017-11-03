@@ -43,6 +43,17 @@ CFLAGS += -pthread
 CFLAGS += -Wall
 CFLAGS += -Wextra
 CFLAGS += -Wno-unused-parameter
+
+CFLAGS += -Wno-pointer-sign
+CFLAGS += -Wno-implicit-function-declaration
+CFLAGS += -Wno-format-zero-length
+CFLAGS += -Wno-incompatible-pointer-types
+CFLAGS += -Wno-parentheses
+CFLAGS += -Wno-sign-compare
+CFLAGS += -Wno-discarded-qualifiers
+CFLAGS += -Wno-unused-variable
+
+
 CFLAGS += -m64
 CFLAGS += -O3
 CFLAGS += -fno-omit-frame-pointer
@@ -57,6 +68,7 @@ define COMPILE_C_TEMPLATE
 $(OBJDIR)/$(notdir $(basename $(1))).o : $(1) $(BUILDONCHANGE)
 	@echo "==== Building [$$<]"
 	@echo Compiling [$$<] to [$$@]
+	@echo 
 	$(CC) $$(CFLAGS) -c $$< -o $$@
 	@echo " "
 endef
@@ -64,9 +76,11 @@ $(foreach src, $(SRC), $(eval $(call COMPILE_C_TEMPLATE, $(src))))
 
 outs/demo : $(COMMON_OBJS) objs/demo.o
 	$(CC) $^ -o $@
+	@echo 
 
 outs/benchmark : $(COMMON_OBJS) objs/benchmark.o
 	$(CC) $^ -o $@
+	@echo 
 
 d:
 	@if [ -d "objs" ]; then : ; else mkdir objs;  fi
